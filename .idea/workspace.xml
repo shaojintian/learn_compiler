@@ -209,56 +209,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Go Build.go build main.go">
-    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="learn_compiler" />
-      <working_directory value="$PROJECT_DIR$/" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/main.go" />
-      <package value="learn_compiler" />
-      <directory value="$PROJECT_DIR$/" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build model.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="learn_compiler" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/lexer/model.go" />
-      <package value="learn_compiler" />
-      <directory value="$PROJECT_DIR$/" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestIsAlpha in learn_compiler/lexer" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="learn_compiler" />
-      <working_directory value="$PROJECT_DIR$/lexer" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="learn_compiler/lexer" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestIsAlpha$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestLog in learn_compiler/my_log" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="learn_compiler" />
-      <working_directory value="$PROJECT_DIR$/my_log" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="learn_compiler/my_log" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/" />
-      <pattern value="^TestLog$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="do_lex_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="learn_compiler" />
-      <working_directory value="$PROJECT_DIR$/lexer" />
-      <framework value="gotest" />
-      <kind value="FILE" />
-      <package value="learn_compiler" />
-      <directory value="$PROJECT_DIR$/" />
-      <filePath value="$PROJECT_DIR$/lexer/do_lex_test.go" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build main.go" />
