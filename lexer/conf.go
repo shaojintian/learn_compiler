@@ -78,3 +78,4 @@ var TokenType2Str = map[TokenType]string{
 	EOF:  "EOF",
 	INIT: "INIT",
 }
+
