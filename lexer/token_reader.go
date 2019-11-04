@@ -62,5 +62,9 @@ func (r *MyTokenReader) GetPosition() int {
 	return r.pos
 }
 func (r *MyTokenReader) SetPosition(pos int) {
-	r.pos = pos
+	if pos >= 0 && pos < len(r.tokens){
+		r.pos = pos
+	}else{
+		my_log.LogFatal(errors.New("setPos token stream err"))
+	}
 }
