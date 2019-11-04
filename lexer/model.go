@@ -13,6 +13,15 @@ type Lexer struct {
 	tokens []*Token
 }
 
+func NewToken(typ TokenType,text []rune) *Token{
+	return &Token{
+		typ:typ,
+		text:text,
+	}
+}
+
+
+
 // initialize  function of lexer
 func NewLexer(source []rune) (*Lexer, error) {
 	tokens := make([]*Token, 0)
@@ -23,3 +32,5 @@ func NewLexer(source []rune) (*Lexer, error) {
 		tokens: tokens,
 	}, nil
 }
+
+
