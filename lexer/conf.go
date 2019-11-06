@@ -20,8 +20,8 @@ const (
 	EQ
 	Assign
 
-	IntLiteral     //int type
-	DoubleLiteral  //double type
+	IntLiteral     //整数
+	DoubleLiteral  //浮点数
 
 	Identifier  //variable
 
@@ -32,6 +32,10 @@ const (
 	NIL
 	RUNE
 
+	LeftParen  //(
+	RightParen	//)
+
+	NULL
 	EOF
 	INIT
 )

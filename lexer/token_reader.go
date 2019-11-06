@@ -25,10 +25,7 @@ func NewTokenReader(tokens []Token) *MyTokenReader {
 	}
 }
 
-func NullToken() Token {
-	return *NewToken(EOF, nil)
 
-}
 
 func (r *MyTokenReader) Read() Token {
 	if r.pos < len(r.tokens) {

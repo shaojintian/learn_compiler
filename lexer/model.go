@@ -20,7 +20,10 @@ func NewToken(typ TokenType,text []rune) *Token{
 	}
 }
 
+func NullToken() Token {
+	return *NewToken(NULL, nil)
 
+}
 
 // initialize  function of lexer
 func NewLexer(source []rune) (*Lexer, error) {
@@ -33,4 +36,10 @@ func NewLexer(source []rune) (*Lexer, error) {
 	}, nil
 }
 
+func(tok *Token) GetTyp() TokenType{
+	return tok.typ
+}
 
+func(tok *Token) GetText() []rune{
+	return tok.text
+}

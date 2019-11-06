@@ -15,4 +15,6 @@ const (
 
 	Identifier  //标识符
 	IntLiteral  //整型字面量
+
+	NUll //null Node
 )
