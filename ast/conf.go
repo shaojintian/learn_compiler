@@ -18,3 +18,24 @@ const (
 
 	NUll //null Node
 )
+
+var NodeType2Str = map[NodeType]string{
+
+	Program:"Program",
+	IntDeclaration:"IntDeclaration",
+	ExpressionStmt:"ExpressionStmt",
+	AssignmentStmt:"AssignmentStmt",
+	Primary:"Primary",
+	Multiplicative:"Multiplicative",
+	Additive:"Additive",
+
+
+
+	IntLiteral:    "IntLiteral",    //int type number
+
+	Identifier: "Identifier", //variable
+
+
+	NUll:"Null",
+}
+

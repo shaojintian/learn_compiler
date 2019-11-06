@@ -131,7 +131,7 @@ func (c *MyCalculator) multiplicative(r *lexer.MyTokenReader) ast.Node {
 }
 func (c *MyCalculator) evaluate(node ast.Node, indent string) int {
 	var result int
-	fmt.Println(indent, "Calculating: ", node.GetType())
+	fmt.Println(indent, "Calculating: ", ast.NodeType2Str[node.GetType()])
 	switch node.GetType() {
 	case ast.Program:
 		for _, child := range node.GetChildren() {

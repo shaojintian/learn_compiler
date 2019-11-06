@@ -1,6 +1,7 @@
 package calculator
 
 import (
+	"learn_compiler/ast"
 	"log"
 	"testing"
 )
@@ -26,9 +27,11 @@ func TestCalculate(t *testing.T) {
 		log.Fatalln()
 	}
 
+}
 
-
-
-
-
+func TestMyCalculator_Parse(t *testing.T) {
+	cal := NewMyCal()
+	source1 := []rune("2+3*5") //17
+	root := cal.parse(source1)
+	ast.DumpAST(root,"")
 }
