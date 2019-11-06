@@ -7,7 +7,7 @@ import (
 )
 
 func TestCalculate(t *testing.T) {
-	//x := ast.NewNode(ast.Program, []rune("calculator"))
+
 	source1 := []rune("2+3*5") //17
 	source2 := []rune("2+3*5*2") //32c
 	source3 := []rune("2+3") //5

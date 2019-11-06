@@ -36,6 +36,7 @@ func (l *Lexer) InitToken(ch rune) Token {
 		tok.typ = Plus
 	case ch == '-':
 		tok.typ = Minus
+		
 
 	default:
 		my_log.LogPrint(errors.New("illegal token"))

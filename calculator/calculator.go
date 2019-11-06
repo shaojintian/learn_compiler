@@ -143,7 +143,7 @@ func (c *MyCalculator) evaluate(node ast.Node, indent string) int {
 		value1 := c.evaluate(child1, indent+"\t")
 		child2 := node.GetChildren()[1]
 		value2 := c.evaluate(child2, indent+"\t")
-		if strings.Compare(string(node.GetText()),"+") == 1{
+		if strings.Compare(string(node.GetText()),"+") == 0{
 			result = value1 + value2
 		} else {
 			result = value1 - value2
@@ -154,7 +154,7 @@ func (c *MyCalculator) evaluate(node ast.Node, indent string) int {
 		value1 := c.evaluate(child1, indent+"\t")
 		child2 := node.GetChildren()[1]
 		value2 := c.evaluate(child2, indent+"\t")
-		if strings.Compare(string(node.GetText()),"*") == 1{
+		if strings.Compare(string(node.GetText()),"*") == 0{
 			result = value1 * value2
 		} else {
 			result = value1 / value2
