@@ -11,7 +11,7 @@ import (
 //eg:'int a = 1 age >= 45 intA = 67  1+2*3/6'
 func (l *Lexer) InitToken(ch rune) Token {
 	//initialize a token
-	tok := &Token{
+	tok := Token{
 		typ:  INIT,
 		text: []rune{ch},
 	}

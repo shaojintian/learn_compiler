@@ -37,6 +37,7 @@ func (c *MyCalculator) Prog(reader *lexer.MyTokenReader) ast.Node {
 	if child.GetType() != ast.NUll {
 		node.AddChild(child)
 	}
+	return node
 }
 
 func (c *MyCalculator) parse(source []rune) ast.Node {
@@ -58,7 +59,7 @@ func (c *MyCalculator) parse(source []rune) ast.Node {
 
 }
 func (c *MyCalculator) intDeclare(r *lexer.MyTokenReader) ast.Node {
-
+	return ast.NewNode(ast.Program,nil)
 }
 func (c *MyCalculator) additive(r *lexer.MyTokenReader) ast.Node {
 	child1 := c.multiplicative(r)
