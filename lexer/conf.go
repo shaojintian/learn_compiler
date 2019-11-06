@@ -19,6 +19,8 @@ const (
 	SlashEQ
 	EQ
 	Assign
+	LeftParen  //(
+	RightParen	//)
 
 	IntLiteral     //整数
 	DoubleLiteral  //浮点数
@@ -32,8 +34,7 @@ const (
 	NIL
 	RUNE
 
-	LeftParen  //(
-	RightParen	//)
+
 
 	NULL
 	EOF
@@ -66,6 +67,8 @@ var TokenType2Str = map[TokenType]string{
 	SlashEQ: "SlashEQ",
 	EQ:      "EQ",
 	Assign:  "Assign",
+	LeftParen  :"LeftParen",
+	RightParen	:"RightParen",
 
 	IntLiteral:    "IntLiteral",    //int type number
 	DoubleLiteral: "DoubleLiteral", //double type number
@@ -81,5 +84,6 @@ var TokenType2Str = map[TokenType]string{
 
 	EOF:  "EOF",
 	INIT: "INIT",
+	NULL: "NULL",
 }
 
