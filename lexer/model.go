@@ -1,22 +1,14 @@
 package lexer
-
+//token
 type Token struct {
 	typ  TokenType
 	text []rune
 }
 
-// Lexer
-type Lexer struct {
-	source []rune
-	index  int
-	status TokenType
-	tokens []*Token
-}
-
-func NewToken(typ TokenType,text []rune) *Token{
+func NewToken(typ TokenType, text []rune) *Token {
 	return &Token{
-		typ:typ,
-		text:text,
+		typ:  typ,
+		text: text,
 	}
 }
 
@@ -25,21 +17,33 @@ func NullToken() Token {
 
 }
 
+func (tok *Token) GetTyp() TokenType {
+	return tok.typ
+}
+
+func (tok *Token) GetText() []rune {
+	return tok.text
+}
+
+// Lexer
+type Lexer struct {
+	source []rune
+	index  int
+	status TokenType
+	tokens []Token
+}
+
 // initialize  function of lexer
-func NewLexer(source []rune) (*Lexer, error) {
-	tokens := make([]*Token, 0)
+func NewLexer(source []rune) *Lexer {
+	tokens := make([]Token, 0)
 	return &Lexer{
 		source: source,
 		index:  0,
 		status: INIT,
 		tokens: tokens,
-	}, nil
+	}
 }
 
-func(tok *Token) GetTyp() TokenType{
-	return tok.typ
-}
-
-func(tok *Token) GetText() []rune{
-	return tok.text
+func ( l *Lexer) GetToks() []Token{
+	return l.tokens
 }

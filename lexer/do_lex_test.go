@@ -13,12 +13,10 @@ func TestIsAlpha(t *testing.T) {
 func TestLexer(t *testing.T) {
 
 	source := " 1+2*3/6"
-	lexer, err := NewLexer([]rune(source))
-	if err != nil {
-		panic(err)
-	}
+	lexer:= NewLexer([]rune(source))
 
-	err = lexer.Lex()
+
+	err := lexer.Lex()
 	if err != nil {
 		panic(err)
 	}

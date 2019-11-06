@@ -9,7 +9,7 @@ import (
 
 //init token
 //eg:'int a = 1 age >= 45 intA = 67  1+2*3/6'
-func (l *Lexer) InitToken(ch rune) *Token {
+func (l *Lexer) InitToken(ch rune) Token {
 	//initialize a token
 	tok := &Token{
 		typ:  INIT,
@@ -47,7 +47,7 @@ func (l *Lexer) InitToken(ch rune) *Token {
 
 //'int     a    =    1'
 func (l *Lexer) Lex() error {
-	var token *Token
+	var token Token
 	var ch rune
 	//skip whitespaces in beginning
 	l.SkipSpace()
@@ -63,7 +63,7 @@ func (l *Lexer) Lex() error {
 				token.text = append(token.text, ch)
 				l.lexIdentifierAndKeyWords(token.text, token)
 
-			} else if (ch == ' ') {
+			} else if ch == ' ' {
 				l.tokens = append(l.tokens, token)
 				l.SkipSpace()
 				ch = l.source[l.index]
@@ -156,7 +156,7 @@ func (l *Lexer) Lex() error {
 	return nil
 }
 
-func (l *Lexer) lexIdentifierAndKeyWords(s []rune, token *Token) {
+func (l *Lexer) lexIdentifierAndKeyWords(s []rune, token Token) {
 	if l.source[l.index+1] == ' ' {
 		if status, ok := KEYWORDS[string(s)]; ok {
 			l.status = status
