@@ -3,18 +3,21 @@ package calculator
 import (
 	"learn_compiler/ast"
 	"log"
+
 	"testing"
 )
 
 func TestCalculate(t *testing.T) {
 
-	source1 := []rune("2+3*5") //17
+	/*source1 := []rune("2+3*5") //17
 	source2 := []rune("2+3*5*2") //32c
 	source3 := []rune("2+3") //5
+
+	 */
 	source4 := []rune("(2+3)") //5
 
 	cal := NewMyCal()
-	if cal.evaluateAll(source1)!=17{
+	/*if cal.evaluateAll(source1)!=17{
 		log.Fatalln()
 	}
 	if cal.evaluateAll(source2)!=32{
@@ -23,6 +26,9 @@ func TestCalculate(t *testing.T) {
 	if cal.evaluateAll(source3)!=5{
 		log.Fatalln()
 	}
+
+	 */
+
 	if cal.evaluateAll(source4)!=5{
 		log.Fatalln()
 	}
@@ -31,7 +37,8 @@ func TestCalculate(t *testing.T) {
 
 func TestMyCalculator_Parse(t *testing.T) {
 	cal := NewMyCal()
-	source1 := []rune("2+3*5") //17
-	root := cal.parse(source1)
+	source1 := []rune("(2+3)") //17
+	root,tokReader := cal.parse(source1)
+	tokReader.PrintToks()
 	ast.DumpAST(root,"")
 }

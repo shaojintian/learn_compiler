@@ -2,6 +2,7 @@ package lexer
 
 import (
 	"errors"
+	"fmt"
 	"learn_compiler/my_log"
 )
 
@@ -11,6 +12,8 @@ type TokenReader interface {
 	Unread()          //恢复一个Token到stream
 	GetPosition() int //获取stream当前读取位置
 	SetPosition(int)  //设置token stream读取位置
+	GetToks() []Token
+	PrintToks()//打印toks
 }
 
 type MyTokenReader struct {
@@ -63,5 +66,13 @@ func (r *MyTokenReader) SetPosition(pos int) {
 		r.pos = pos
 	}else{
 		my_log.LogFatal(errors.New("setPos token stream err"))
+	}
+}
+func (r *MyTokenReader)GetToks()[]Token{
+	return r.tokens
+}
+func (r *MyTokenReader)PrintToks(){
+	for _,tok := range r.GetToks(){
+		fmt.Printf("tok:{%v,%v}\n",TokenType2Str[tok.GetTyp()],string(tok.GetText()))
 	}
 }

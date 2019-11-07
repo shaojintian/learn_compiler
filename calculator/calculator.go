@@ -18,7 +18,7 @@ type Calculator interface {
 	multiplicative(*lexer.MyTokenReader) ast.Node //乘法表达式
 	primary(reader *lexer.MyTokenReader) ast.Node //基础表达式
 	evaluate(node ast.Node, indent string) int    // 求某个node的值，并写出过程
-	evaluateAll([]rune) int                       //求脚本的结果
+	evaluateAll([]rune) int                       //求脚本的结果,并且打印AST
 }
 
 type MyCalculator struct {
@@ -40,7 +40,7 @@ func (c *MyCalculator) Prog(reader *lexer.MyTokenReader) ast.Node {
 	return node
 }
 
-func (c *MyCalculator) parse(source []rune) ast.Node {
+func (c *MyCalculator) parse(source []rune) (ast.Node,lexer.TokenReader) {
 	var err error
 	//lexer
 	Lexer := lexer.NewLexer(source)
@@ -55,7 +55,7 @@ func (c *MyCalculator) parse(source []rune) ast.Node {
 	//ast root
 	root := c.Prog(tokReader)
 
-	return root
+	return root,tokReader
 
 }
 func (c *MyCalculator) intDeclare(r *lexer.MyTokenReader) ast.Node {
@@ -65,6 +65,7 @@ func (c *MyCalculator) additive(r *lexer.MyTokenReader) ast.Node {
 	child1 := c.multiplicative(r)
 	node := child1
 	tok := r.Peek()
+	//fmt.Println("node=====================",ast.NodeType2Str[node.GetType()])
 	if child1.GetType() != ast.NUll && tok.GetTyp() != lexer.NULL {
 		if tok.GetTyp() == lexer.Plus || tok.GetTyp() == lexer.Minus {
 			tok := r.Read()
@@ -174,8 +175,11 @@ func (c *MyCalculator) evaluate(node ast.Node, indent string) int {
 }
 
 func (c *MyCalculator) evaluateAll(source []rune) int {
-	root := c.parse(source)
+	root ,_:= c.parse(source)
+	fmt.Println("=== Print AST")
 	ast.DumpAST(root, "")
+	fmt.Println()
+	fmt.Println("=== Start Calculating")
 	return c.evaluate(root, "")
 
 }

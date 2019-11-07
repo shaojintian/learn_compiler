@@ -41,10 +41,8 @@ func (l *Lexer) InitToken(ch rune) Token {
 	case ch == ')':
 		tok.typ = RightParen
 
-
-
 	default:
-		my_log.LogPrint(errors.New("illegal token"))
+		my_log.LogPrint(errors.New("illegal token(need to fix Lex())"))
 
 	}
 	l.status = tok.typ
@@ -52,6 +50,9 @@ func (l *Lexer) InitToken(ch rune) Token {
 }
 
 //'int     a    =    1'
+/*
+@parameter:token 上一个ch组成的tok
+ */
 func (l *Lexer) Lex() error {
 	var token Token
 	var ch rune
@@ -94,6 +95,9 @@ func (l *Lexer) Lex() error {
 				l.tokens = append(l.tokens, token)
 				token = l.InitToken(ch)
 
+			} else if ch == ')'{
+				l.tokens = append(l.tokens,token)
+				token = l.InitToken(ch)
 			}
 
 		case Assign:
@@ -152,10 +156,16 @@ func (l *Lexer) Lex() error {
 				l.tokens = append(l.tokens, token)
 				token = l.InitToken(ch)
 			}
-
+		case LeftParen:
+			l.tokens = append(l.tokens,token)
+			l.SkipSpace()
+			ch = l.source[l.index]
+			token = l.InitToken(ch)
+		case RightParen:
+			l.SkipSpace()
 		}
 
-		if l.index == len(l.source)-1 {
+		if l.index >= len(l.source)-1 {
 			l.tokens = append(l.tokens, token)
 		}
 	}
@@ -202,4 +212,3 @@ func IsDigital(ch rune) bool {
 	}
 	return ok
 }
-
